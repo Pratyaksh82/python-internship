@@ -18,7 +18,7 @@ Welcome to the **Python Internship Certification Program** repository. This repo
 | Milestone | Task Title | Core Technologies | Status |
 | :--- | :--- | :--- | :---: |
 | **Week 1** | **Python CLI Application Design and Implementation** | OOP, Dataclasses, Atomic JSON, Unit Testing | ✅ Completed |
-| **Week 2** | *Upcoming Milestone* | Data Processing & Algorithms | ⏳ Upcoming |
+| **Week 2** | **Debugging and Troubleshooting Python Applications** | pdb, Runtime Tracing, Root-Cause Analysis, Refactoring | ✅ Completed |
 | **Week 3** | *Upcoming Milestone* | Advanced File I/O & Networking | ⏳ Upcoming |
 | **Week 4** | *Upcoming Milestone* | Web Scraping / API Integration | ⏳ Upcoming |
 | **Week 5** | *Upcoming Milestone* | Database Integration / ORM | ⏳ Upcoming |
@@ -135,10 +135,42 @@ OK
 
 ---
 
+## 🔍 Week 2: Debugging and Troubleshooting Python Applications
+
+### Overview
+Week 2 centers on real-world troubleshooting, runtime tracing, and defensive code refactoring using Python's standard `pdb` module. An enterprise e-commerce order processor (`week2_debugging/`) was engineered to simulate 8 high-impact Python bugs across file I/O, sequences, dictionaries, scopes, and serialization.
+
+### 8 Bugs Diagnosed & Resolved
+1. **File I/O Resource Leaks:** Fixed raw `open()` calls by using `with` context managers and `os.path.exists` validation.
+2. **Mutable Default Arguments:** Eliminated state leakage across function calls by replacing `items=[]` with `None` and defensive copy allocation.
+3. **Off-by-One Loop Indexing:** Replaced 1-based indexing (`range(1, len+1)`) with direct Python iteration.
+4. **Sequence Mutation in Iteration:** Eliminated skipped records by replacing in-place `remove()` with list comprehensions.
+5. **Type Coercion & Zero-Division:** Added currency regex parsing and empty dataset length guards.
+6. **Shallow Copy Mutations:** Replaced `list()` with `copy.deepcopy()` to isolate historical snapshots.
+7. **Scoping & Variable Shadowing:** Standardized upfront variable initialization to eliminate `UnboundLocalError`.
+8. **JSON Serialization Failures:** Implemented `DateTimeEncoder` inheriting `json.JSONEncoder` for ISO-8601 formatting.
+
+### Running Week 2 Scripts
+```bash
+# Run automated bug diagnosis and verification script
+python -m week2_debugging.debug_session
+
+# Run corrected, refactored production engine
+python -m week2_debugging.corrected_application
+```
+
+---
+
 ## 📄 Documentation & Deliverables
 
-- **Formal Report (`.docx`):** [`docs/Python_CLI_TodoList_Week1_Report.docx`](docs/Python_CLI_TodoList_Week1_Report.docx) (2,444 words, full architectural breakdown, UML flowcharts, pseudocode, and testing logs).
+### Week 1 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_CLI_TodoList_Week1_Report.docx`](docs/Python_CLI_TodoList_Week1_Report.docx) (2,444 words).
 - **Source Code Archive (`.zip`):** [`docs/todo-cli-week1.zip`](docs/todo-cli-week1.zip).
+
+### Week 2 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_Debugging_Troubleshooting_Week2_Report.docx`](docs/Python_Debugging_Troubleshooting_Week2_Report.docx) (1,592 words).
+- **Debugging Audit Log (`.md`):** [`week2_debugging/DEBUGGING_LOG.md`](week2_debugging/DEBUGGING_LOG.md).
+- **Source Code & Log Archive (`.zip`):** [`docs/python-week2-debugging.zip`](docs/python-week2-debugging.zip).
 
 ---
 

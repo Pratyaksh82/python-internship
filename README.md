@@ -19,7 +19,7 @@ Welcome to the **Python Internship Certification Program** repository. This repo
 | :--- | :--- | :--- | :---: |
 | **Week 1** | **Python CLI Application Design and Implementation** | OOP, Dataclasses, Atomic JSON, Unit Testing | ✅ Completed |
 | **Week 2** | **Debugging and Troubleshooting Python Applications** | pdb, Runtime Tracing, Root-Cause Analysis, Refactoring | ✅ Completed |
-| **Week 3** | *Upcoming Milestone* | Advanced File I/O & Networking | ⏳ Upcoming |
+| **Week 3** | **Writing Automated Tests for Python Applications** | TDD, unittest, Integration Testing, Data Pipelines | ✅ Completed |
 | **Week 4** | *Upcoming Milestone* | Web Scraping / API Integration | ⏳ Upcoming |
 | **Week 5** | *Upcoming Milestone* | Database Integration / ORM | ⏳ Upcoming |
 | **Week 6** | *Upcoming Milestone* | Final Capstone Engineering Project | ⏳ Upcoming |
@@ -161,6 +161,24 @@ python -m week2_debugging.corrected_application
 
 ---
 
+## 🧪 Week 3: Writing Automated Tests for Python Applications
+
+### Overview
+Week 3 focuses on **Test-Driven Development (TDD)** and automated test engineering using Python's standard `unittest` framework. A modular data processing, sanitization, and statistical aggregation engine (`week3_testing/engine.py`) was developed alongside an automated unit and integration test suite (`week3_testing/test_engine.py`).
+
+### Key Modules Tested
+- **`TextCleaner`:** String sanitization, whitespace collapsing, slugification, and PII email masking.
+- **`MetricsCalculator`:** Arithmetic mean, median (odd/even), sample standard deviation, and IQR outlier boundaries.
+- **`DataPipeline`:** Batch ingestion, schema validation, negative value prevention, and automated aggregation.
+
+### Running Week 3 Tests
+```bash
+# Execute Week 3 automated unit & integration tests
+python -m unittest week3_testing.test_engine -v
+```
+
+---
+
 ## 📄 Documentation & Deliverables
 
 ### Week 1 Deliverables
@@ -171,6 +189,11 @@ python -m week2_debugging.corrected_application
 - **Formal Report (`.docx`):** [`docs/Python_Debugging_Troubleshooting_Week2_Report.docx`](docs/Python_Debugging_Troubleshooting_Week2_Report.docx) (1,592 words).
 - **Debugging Audit Log (`.md`):** [`week2_debugging/DEBUGGING_LOG.md`](week2_debugging/DEBUGGING_LOG.md).
 - **Source Code & Log Archive (`.zip`):** [`docs/python-week2-debugging.zip`](docs/python-week2-debugging.zip).
+
+### Week 3 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_Automated_Testing_Week3_Report.docx`](docs/Python_Automated_Testing_Week3_Report.docx) (1,534 words).
+- **TDD Test Documentation (`.md`):** [`week3_testing/TEST_DOCUMENTATION.md`](week3_testing/TEST_DOCUMENTATION.md).
+- **Source Code & Test Archive (`.zip`):** [`docs/python-week3-testing.zip`](docs/python-week3-testing.zip).
 
 ---
 

@@ -21,7 +21,7 @@ Welcome to the **Python Internship Certification Program** repository. This repo
 | **Week 2** | **Debugging and Troubleshooting Python Applications** | pdb, Runtime Tracing, Root-Cause Analysis, Refactoring | ✅ Completed |
 | **Week 3** | **Writing Automated Tests for Python Applications** | TDD, unittest, Integration Testing, Data Pipelines | ✅ Completed |
 | **Week 4** | **Performance Optimization in Python Applications** | cProfile, timeit, lru_cache, Hash Sets, Benchmarks | ✅ Completed |
-| **Week 5** | *Upcoming Milestone* | Database Integration / ORM | ⏳ Upcoming |
+| **Week 5** | **Security Enhancements in Python Applications** | OWASP Top 10, PBKDF2-HMAC, Parameterized SQL, Sandboxing | ✅ Completed |
 | **Week 6** | *Upcoming Milestone* | Final Capstone Engineering Project | ⏳ Upcoming |
 
 ---
@@ -198,6 +198,27 @@ python -m week4_optimization.benchmark_profiler
 
 ---
 
+## 🔒 Week 5: Security Enhancements in Python Applications
+
+### Overview
+Week 5 focuses on **Application Security Hardening, Threat Modeling, and Vulnerability Remediation** aligning with the **OWASP Top 10** and **MITRE CWE** frameworks. A user authentication and sensitive data vault service (`week5_security/`) was audited, hardened, and verified against automated attack payloads.
+
+### Vulnerabilities Remedied
+- **SQL Injection (CWE-89):** Replaced raw string interpolation with parameterized SQLite queries (`?`), preventing authentication bypass (`admin' --`).
+- **Insecure Password Hashing (CWE-256):** Upgraded obsolete MD5 to PBKDF2-HMAC-SHA256 (600,000 rounds + 32-byte cryptographically secure salt) and constant-time verification (`hmac.compare_digest`).
+- **Insecure Deserialization (CWE-502):** Replaced vulnerable `pickle.loads` with safe JSON schema validation, neutralizing Remote Code Execution (RCE).
+- **OS Command Injection (CWE-78):** Enforced regex hostname whitelisting (`^[a-zA-Z0-9.-]+$`) and disabled shell execution (`shell=False`).
+- **Path Traversal (CWE-22):** Implemented canonical boundary checks via `os.path.commonpath`, preventing directory escape (`../../secret.txt`).
+- **Information Disclosure (CWE-209):** Replaced verbose stack trace leaks with sanitized client error envelopes and internal audit logging.
+
+### Running Week 5 Attack Simulations
+```bash
+# Execute automated attack simulation and verification suite
+python -m week5_security.attack_simulation_test
+```
+
+---
+
 ## 📄 Documentation & Deliverables
 
 ### Week 1 Deliverables
@@ -218,6 +239,11 @@ python -m week4_optimization.benchmark_profiler
 - **Formal Report (`.docx`):** [`docs/Python_Performance_Optimization_Week4_Report.docx`](docs/Python_Performance_Optimization_Week4_Report.docx) (1,526 words).
 - **Profiling Benchmark Report (`.md`):** [`week4_optimization/PROFILING_BENCHMARK_REPORT.md`](week4_optimization/PROFILING_BENCHMARK_REPORT.md).
 - **Source Code & Profiler Archive (`.zip`):** [`docs/python-week4-optimization.zip`](docs/python-week4-optimization.zip).
+
+### Week 5 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_Security_Enhancements_Week5_Report.docx`](docs/Python_Security_Enhancements_Week5_Report.docx) (1,508 words).
+- **Security Audit Report (`.md`):** [`week5_security/SECURITY_AUDIT_REPORT.md`](week5_security/SECURITY_AUDIT_REPORT.md).
+- **Source Code & Attack Harness Archive (`.zip`):** [`docs/python-week5-security.zip`](docs/python-week5-security.zip).
 
 ---
 

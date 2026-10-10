@@ -20,7 +20,7 @@ Welcome to the **Python Internship Certification Program** repository. This repo
 | **Week 1** | **Python CLI Application Design and Implementation** | OOP, Dataclasses, Atomic JSON, Unit Testing | ✅ Completed |
 | **Week 2** | **Debugging and Troubleshooting Python Applications** | pdb, Runtime Tracing, Root-Cause Analysis, Refactoring | ✅ Completed |
 | **Week 3** | **Writing Automated Tests for Python Applications** | TDD, unittest, Integration Testing, Data Pipelines | ✅ Completed |
-| **Week 4** | *Upcoming Milestone* | Web Scraping / API Integration | ⏳ Upcoming |
+| **Week 4** | **Performance Optimization in Python Applications** | cProfile, timeit, lru_cache, Hash Sets, Benchmarks | ✅ Completed |
 | **Week 5** | *Upcoming Milestone* | Database Integration / ORM | ⏳ Upcoming |
 | **Week 6** | *Upcoming Milestone* | Final Capstone Engineering Project | ⏳ Upcoming |
 
@@ -179,6 +179,25 @@ python -m unittest week3_testing.test_engine -v
 
 ---
 
+## ⚡ Week 4: Performance Optimization in Python Applications
+
+### Overview
+Week 4 focuses on **Performance Profiling, Algorithmic Optimization, and Benchmarking** using standard Python diagnostic tools (`cProfile`, `pstats`, and `time.perf_counter`). A high-volume financial transaction processing engine (`week4_optimization/`) was evaluated across 20,000 synthetic records, achieving a **389.70x speedup (99.74% latency reduction)**.
+
+### Optimizations Applied
+- **Set Membership vs. List Search:** Swapped linear list scans for $O(1)$ hash set lookups, eliminating 2,000,000 string comparisons.
+- **Linear String Joining:** Replaced iterative `+=` string concatenation with list `.join()`, eradicating quadratic memory reallocations.
+- **LRU Memoization:** Applied `@functools.lru_cache` to expensive mathematical fee calculations, cutting function calls from 16,000 to 5.
+- **Single-Pass Aggregation:** Used `collections.defaultdict(float)` to eliminate dictionary membership branching.
+
+### Running Week 4 Profiler
+```bash
+# Execute automated profiling and benchmark harness
+python -m week4_optimization.benchmark_profiler
+```
+
+---
+
 ## 📄 Documentation & Deliverables
 
 ### Week 1 Deliverables
@@ -194,6 +213,11 @@ python -m unittest week3_testing.test_engine -v
 - **Formal Report (`.docx`):** [`docs/Python_Automated_Testing_Week3_Report.docx`](docs/Python_Automated_Testing_Week3_Report.docx) (1,534 words).
 - **TDD Test Documentation (`.md`):** [`week3_testing/TEST_DOCUMENTATION.md`](week3_testing/TEST_DOCUMENTATION.md).
 - **Source Code & Test Archive (`.zip`):** [`docs/python-week3-testing.zip`](docs/python-week3-testing.zip).
+
+### Week 4 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_Performance_Optimization_Week4_Report.docx`](docs/Python_Performance_Optimization_Week4_Report.docx) (1,526 words).
+- **Profiling Benchmark Report (`.md`):** [`week4_optimization/PROFILING_BENCHMARK_REPORT.md`](week4_optimization/PROFILING_BENCHMARK_REPORT.md).
+- **Source Code & Profiler Archive (`.zip`):** [`docs/python-week4-optimization.zip`](docs/python-week4-optimization.zip).
 
 ---
 

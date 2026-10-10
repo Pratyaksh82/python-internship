@@ -2,8 +2,9 @@
 
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
-[![Tests](https://img.shields.io/badge/Tests-17%20Passed-success.svg)]()
+[![Status](https://img.shields.io/badge/Certification-Completed%20(6%2F6)-brightgreen.svg)]()
+[![CI/CD](https://github.com/Pratyaksh82/python-internship/actions/workflows/ci.yml/badge.svg)](https://github.com/Pratyaksh82/python-internship/actions)
+[![Tests](https://img.shields.io/badge/Tests-All%20Passed-success.svg)]()
 
 Welcome to the **Python Internship Certification Program** repository. This repository houses all project milestones, architectural designs, modular source code, and comprehensive documentation developed during the Junior Python Developer Virtual Internship on the **Yuva Learn** certification platform.
 
@@ -22,7 +23,7 @@ Welcome to the **Python Internship Certification Program** repository. This repo
 | **Week 3** | **Writing Automated Tests for Python Applications** | TDD, unittest, Integration Testing, Data Pipelines | ✅ Completed |
 | **Week 4** | **Performance Optimization in Python Applications** | cProfile, timeit, lru_cache, Hash Sets, Benchmarks | ✅ Completed |
 | **Week 5** | **Security Enhancements in Python Applications** | OWASP Top 10, PBKDF2-HMAC, Parameterized SQL, Sandboxing | ✅ Completed |
-| **Week 6** | *Upcoming Milestone* | Final Capstone Engineering Project | ⏳ Upcoming |
+| **Week 6** | **Integrating Continuous Integration (CI) in Python Projects** | GitHub Actions, Multi-OS Matrix, flake8, bandit, coverage | ✅ Completed |
 
 ---
 
@@ -219,6 +220,25 @@ python -m week5_security.attack_simulation_test
 
 ---
 
+## 🚀 Week 6: Integrating Continuous Integration (CI) in Python Projects
+
+### Overview
+Week 6 serves as the **Capstone DevOps Milestone**, establishing a fully automated Continuous Integration (CI) pipeline powered by **GitHub Actions** (`.github/workflows/ci.yml`). Every push and pull request targeting the `main` branch undergoes automated linting, security SAST scanning, multi-platform matrix execution (Ubuntu & Windows across Python 3.11 & 3.12), regression test suites, and test coverage calculation.
+
+### Automated Quality Gates
+- **PEP 8 Linting (`flake8`):** Restricts line length to 127 chars, enforces syntax validity, and prevents undefined variables.
+- **Security SAST (`bandit`):** Audits Python AST for dangerous functions, shell injections, and deserialization hazards.
+- **Regression Test Suites:** Automatically executes test suites across all 5 prior milestones.
+- **Local Pre-Flight Runner:** Allows developers to execute `python scripts/run_local_ci.py` to replicate the entire CI suite locally in 3 seconds before pushing.
+
+### Running Local CI Suite
+```bash
+# Execute local CI pipeline replicating all cloud gates
+python scripts/run_local_ci.py
+```
+
+---
+
 ## 📄 Documentation & Deliverables
 
 ### Week 1 Deliverables
@@ -244,6 +264,12 @@ python -m week5_security.attack_simulation_test
 - **Formal Report (`.docx`):** [`docs/Python_Security_Enhancements_Week5_Report.docx`](docs/Python_Security_Enhancements_Week5_Report.docx) (1,508 words).
 - **Security Audit Report (`.md`):** [`week5_security/SECURITY_AUDIT_REPORT.md`](week5_security/SECURITY_AUDIT_REPORT.md).
 - **Source Code & Attack Harness Archive (`.zip`):** [`docs/python-week5-security.zip`](docs/python-week5-security.zip).
+
+### Week 6 Deliverables
+- **Formal Report (`.docx`):** [`docs/Python_CI_Integration_Week6_Report.docx`](docs/Python_CI_Integration_Week6_Report.docx) (1,517 words).
+- **CI Pipeline Documentation (`.md`):** [`docs/CI_PIPELINE_DOCUMENTATION.md`](docs/CI_PIPELINE_DOCUMENTATION.md).
+- **GitHub Actions Configuration (`.yml`):** [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+- **Source Code & CI Config Archive (`.zip`):** [`docs/python-week6-ci.zip`](docs/python-week6-ci.zip).
 
 ---
 

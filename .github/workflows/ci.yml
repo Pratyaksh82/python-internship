@@ -1,0 +1,66 @@
+name: Python CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  quality-and-test:
+    name: Lint, Audit & Test (${{ matrix.os }} - Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+          cache-dependency-path: 'pyproject.toml'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 bandit coverage
+
+      - name: Lint with flake8 (PEP 8 compliance)
+        run: |
+          # Stop build if there are Python syntax errors or undefined names
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Exit-zero treat all errors as warnings. 127 chars line length max.
+          flake8 . --count --exit-zero --max-complexity=15 --max-line-length=127 --statistics
+
+      - name: Security Scan with Bandit (SAST)
+        run: |
+          # Run static security analysis on code modules
+          bandit -r todo week2_debugging week3_testing week4_optimization week5_security -s B101 -ll || true
+
+      - name: Run Week 1 To-Do Manager Test Suite
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Run Week 3 Automated Data Engine Tests
+        run: |
+          python -m unittest week3_testing.test_engine -v
+
+      - name: Run Week 4 Performance Optimization Benchmarks
+        run: |
+          python -m week4_optimization.benchmark_profiler
+
+      - name: Run Week 5 Security Attack Simulations
+        run: |
+          python -m week5_security.attack_simulation_test
+
+      - name: Run Full Coverage Analysis
+        run: |
+          coverage run -m unittest discover -s tests
+          coverage report -m
